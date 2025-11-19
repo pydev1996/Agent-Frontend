@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Instruction</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+      body { background-color: #f8f9fa; }
+      .container { max-width: 600px; margin-top: 80px; }
+      textarea { resize: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h3 class="text-center mb-4">✏️ Edit Instruction</h3>
+    <form method="POST">
+      <div class="mb-3">
+        <label for="context" class="form-label">Update Context:</label>
+        <textarea class="form-control" id="context" name="context" rows="4" required>{{ instruction.context }}</textarea>
+      </div>
+      <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-success">💾 Update</button>
+        <a href="{{ url_for('show_instructions') }}" class="btn btn-secondary">Cancel</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
