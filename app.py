@@ -3,7 +3,7 @@ import pyodbc
 
 app = Flask(__name__)
 
-# ✅ SQL SERVER Configuration
+# SQL SERVER Configuration
 db_config = {
     'host': '125.22.69.164',
     'user': 'abhishek',
@@ -30,7 +30,7 @@ def get_connection():
 
 
 # -----------------------------------------
-# 🏠 Home Page (Session Metrics)
+# Home Page (Session Metrics)
 # -----------------------------------------
 @app.route('/')
 def index():
@@ -50,7 +50,7 @@ def index():
 
 
 # -----------------------------------------
-# ➕ Add Instruction
+# Add Instruction
 # -----------------------------------------
 @app.route('/add', methods=['POST'])
 def add_instruction():
@@ -67,7 +67,7 @@ def add_instruction():
 
 
 # -----------------------------------------
-# 📄 Show Instructions
+# Show Instructions
 # -----------------------------------------
 @app.route('/instructions')
 def show_instructions():
@@ -86,7 +86,7 @@ def show_instructions():
 
 
 # -----------------------------------------
-# ✏ Edit Instruction
+# Edit Instruction
 # -----------------------------------------
 @app.route('/edit/<int:id>', methods=['GET', 'POST'])
 def edit_instruction(id):
@@ -111,7 +111,7 @@ def edit_instruction(id):
 
 
 # -----------------------------------------
-# ❌ Delete Instruction
+# Delete Instruction
 # -----------------------------------------
 @app.route('/delete/<int:id>')
 def delete_instruction(id):
@@ -127,7 +127,7 @@ def delete_instruction(id):
 
 
 # -----------------------------------------
-# 🎤 Transcripts Viewer (Search + Filter)
+#  Transcripts Viewer (Search + Filter)
 # -----------------------------------------
 @app.route('/transcripts')
 def transcripts():
@@ -153,7 +153,7 @@ def transcripts():
         query += " AND session_id = ?"
         params.append(session_id)
 
-    # 🔥 sorting oldest → newest
+    #  sorting oldest → newest
     query += " ORDER BY datetime ASC"
 
     cursor.execute(query, params)
